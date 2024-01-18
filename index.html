@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Product Catalog</title>
-      <link rel="stylesheet" href="style.css">
-      <script src="script.js" defer></script>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
 <body>
     <header>
         <h1>Product Catalog</h1>
     </header>
     <main>
-        <section id="product-list">
-            <!-- Products will be dynamically added here -->
+        <div class="import-container">
+            <input type="file" id="file-input" accept=".json" />
+            <button onclick="loadJson()">Load Data</button>
+        </div>
+        <div class="field-selection">
+            <select multiple id="available-fields">
+                <option value="subcategory">Subcategory</option>
+                <option value="title">Title</option>
+                <option value="price">Price</option>
+                <option value="popularity">Popularity</option>
+                <!-- Add other fields as needed -->
+            </select>
+            <div class="buttons">
+                <button onclick="addToDisplayed()">>></button>
+                <button onclick="removeFromDisplayed()"><<</button>
+            </div>
+            <select multiple id="displayed-fields"></select>
+        </div>
+        <button onclick="displayData()">Display Products</button>
+        <section id="product-table-section">
+            <table id="product-table">
+                <thead>
+                    <tr>
+                        <!-- Table headers will be added here based on selection -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Product data will be added here -->
+                </tbody>
+            </table>
         </section>
     </main>
 </body>
