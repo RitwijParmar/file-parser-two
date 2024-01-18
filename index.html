@@ -12,10 +12,42 @@
         <h1>Product Catalog</h1>
     </header>
     <main>
+        <!-- Import Container -->
         <div class="import-container">
             <input type="file" id="file-input" accept=".json,.csv" />
+            
+            <!-- File Format Options -->
+            <div id="format-options">
+                <label for="file-type">File Type</label>
+                <select id="file-type">
+                    <option value="csv">CSV</option>
+                    <option value="json">JSON</option>
+                </select>
+
+                <label for="character-encoding">Character Encoding</label>
+                <select id="character-encoding">
+                    <option value="UTF-8">UTF-8</option>
+                    <option value="ISO-8859-1">ISO-8859-1</option>
+                    <!-- Add other encodings as needed -->
+                </select>
+
+                <label for="delimiter">Delimiter</label>
+                <select id="delimiter">
+                    <option value=",">comma</option>
+                    <option value=";">semicolon</option>
+                    <!-- Add other delimiters as needed -->
+                </select>
+
+                <label for="has-header">
+                    <input type="checkbox" id="has-header" checked>
+                    Has Header
+                </label>
+            </div>
+
             <button onclick="loadJson()">Load Data</button>
         </div>
+
+        <!-- Field Selection -->
         <div class="field-selection">
             <select multiple id="available-fields">
                 <option value="subcategory">Subcategory</option>
@@ -30,7 +62,11 @@
             </div>
             <select multiple id="displayed-fields"></select>
         </div>
+
+        <!-- Display Button -->
         <button onclick="displayData()">Display Products</button>
+
+        <!-- Product Table Section -->
         <section id="product-table-section">
             <table id="product-table">
                 <thead>
