@@ -5,10 +5,22 @@ async function fetchAndDisplayProducts() {
         const products = Object.values(data.products);
         const sortedProducts = products.sort((a, b) => b.popularity - a.popularity);
 
-        // Now, display these products on your webpage
-        // You'll have to write code to modify the DOM to display these products
+        const productListElement = document.getElementById('product-list');
+        productListElement.innerHTML = ''; // Clear existing content
+
+        sortedProducts.forEach(product => {
+            const productElement = document.createElement('div');
+            productElement.className = 'product';
+            productElement.innerHTML = `
+                <h2>${product.title}</h2>
+                <p>Price: <span class="product-price">${product.price}</span></p>
+                <p>Popularity: ${product.popularity}</p>
+            `;
+            productListElement.appendChild(productElement);
+        });
     } catch (error) {
         console.error('Error fetching products:', error);
+        document.getElementById('product-list').innerHTML = '<p>Error loading products.</p>';
     }
 }
 
