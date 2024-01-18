@@ -14,7 +14,6 @@ async function fetchAndDisplayProducts() {
             productElement.innerHTML = `
                 <h2>${product.title}</h2>
                 <p>Price: <span class="product-price">${product.price}</span></p>
-                <p>Popularity: ${product.popularity}</p>
             `;
             productListElement.appendChild(productElement);
         });
